@@ -87,7 +87,7 @@ public class Pigeon : MonoBehaviour
             
             if(skillType == "A")
             {
-                m_hp -= 3;
+                m_hp -= 8;
                 FindObjectOfType<SkillA>().Useable = false;
             }
             else if(skillType == "S")

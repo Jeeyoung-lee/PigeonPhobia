@@ -15,7 +15,7 @@ public class SkillA : Skill
     private void Start()
     {
         m_camera = Camera.main;
-        m_coolTime = 3;
+        m_coolTime = 5;
         Init();
     }
 
@@ -34,7 +34,7 @@ public class SkillA : Skill
             {
                 Init();
                 m_isUseable = true;
-                m_coolTime = 3;
+                m_coolTime = 5;
             }
         }
 
