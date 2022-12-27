@@ -6,8 +6,9 @@ public class Nest : MonoBehaviour
 {
     [SerializeField]
     int m_hp = 8;
+    [Header("둥지에서 몇초마다 비둘기가 생성될 것인지")]
     [SerializeField]
-    float m_duration;
+    float m_creationTime;
 
     float m_time;
 
@@ -18,9 +19,11 @@ public class Nest : MonoBehaviour
     private void Update()
     {
         m_time += Time.deltaTime;
-        if(m_time >= m_duration)
+        if(m_time >= m_creationTime)
         {
-            PrefabManager.instance.CreatePigeon();
+            var prefabManager = PrefabManager.instance;
+            var pigeon = prefabManager.CreatePigeonInNest();
+            pigeon.transform.position = transform.position;
             m_time = 0;
         }
     }

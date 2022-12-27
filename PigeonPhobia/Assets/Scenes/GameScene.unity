@@ -4755,12 +4755,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1696001362}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9016f40fb56a8ad448be46f35d29af06, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b472fe936c40e24aac57f64f69fb415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_pigeonAppearTime: 0
-  m_foodAppearTime: 0
-  m_foodCount: 0
+  m_startPigeonCount: 15
+  m_startNestCount: 3
 --- !u!1 &1737128153
 GameObject:
   m_ObjectHideFlags: 0

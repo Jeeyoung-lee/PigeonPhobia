@@ -28,7 +28,6 @@ public class PrefabManager : MonoBehaviour
 
     void Awake() => instance = this;
 
-
     /// <summary>
     /// 둥지 생성
     /// </summary>
@@ -39,19 +38,35 @@ public class PrefabManager : MonoBehaviour
         var randomX = Random.Range(m_nestRange.bounds.min.x, m_nestRange.bounds.max.x);
         var randomY = Random.Range(m_nestRange.bounds.min.y, m_nestRange.bounds.max.y);
         nest.transform.position = new Vector2(randomX, randomY);
+
         return nest;
     }
 
     /// <summary>
-    /// 비둘기 생성
+    /// 비둘기 랜덤 위치 생성
     /// </summary>
     /// <returns></returns>
-    public GameObject CreatePigeon()
+    public GameObject CreatePigeonRandom()
     {
         var pigeon = Instantiate(m_pigeonPrefab, m_pigeonParent);
         var randomX = Random.Range(m_pigeonRange.bounds.min.x, m_pigeonRange.bounds.max.x);
         var randomY = Random.Range(m_pigeonRange.bounds.min.y, m_pigeonRange.bounds.max.y);
         pigeon.transform.position = new Vector2(randomX, randomY);
+        pigeon.GetComponent<Movement>().Run(m_pigeonRange);
+        GameManager.instance.PlusCount();
+        return pigeon;
+    }
+
+    /// <summary>
+    /// 비둘기 둥지에서 생성
+    /// </summary>
+    /// <returns></returns>
+    public GameObject CreatePigeonInNest()
+    {
+        var pigeon = Instantiate(m_pigeonPrefab, m_pigeonParent);
+        //var randomX = Random.Range(m_pigeonRange.bounds.min.x, m_pigeonRange.bounds.max.x);
+        //var randomY = Random.Range(m_pigeonRange.bounds.min.y, m_pigeonRange.bounds.max.y);
+        //pigeon.transform.position = new Vector2(randomX, randomY);
         pigeon.GetComponent<Movement>().Run(m_pigeonRange);
         GameManager.instance.PlusCount();
         return pigeon;

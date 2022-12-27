@@ -26,16 +26,16 @@ public class AppearancePigeon : MonoBehaviour
 
     private void Update()
     {
-        m_curTime += Time.deltaTime;
-        if(m_time < m_curTime)
-        {
-            var prefab = Instantiate(m_pigeonPrefab, m_pigeonParent);
-            var randomX = Random.Range(_range.bounds.min.x, _range.bounds.max.x);
-            var randomY = Random.Range(_range.bounds.min.y, _range.bounds.max.y);
-            prefab.transform.position = new Vector2(randomX, randomY);
-            prefab.GetComponent<Movement>().Run(_range);
-            m_gameManager.PlusCount();
-            m_curTime = 0;
-        }
+        //m_curTime += Time.deltaTime;
+        //if(m_time < m_curTime)
+        //{
+        //    var prefab = Instantiate(m_pigeonPrefab, m_pigeonParent);
+        //    var randomX = Random.Range(_range.bounds.min.x, _range.bounds.max.x);
+        //    var randomY = Random.Range(_range.bounds.min.y, _range.bounds.max.y);
+        //    prefab.transform.position = new Vector2(randomX, randomY);
+        //    prefab.GetComponent<Movement>().Run(_range);
+        //    m_gameManager.PlusCount();
+        //    m_curTime = 0;
+        //}
     }
 }
