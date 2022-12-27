@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     Text m_pigeonCountText;
     [SerializeField]
     GameObject m_ending;
+    [SerializeField]
+    Transform m_pigeonParent;
 
     int m_pigeonCount; // 생성된 비둘기 수치
     const int m_maxPigeonCount = 50; // 비둘기 생성 가능 최대 수치
@@ -34,6 +36,7 @@ public class GameManager : MonoBehaviour
     public void PlusCount()
     {
         m_pigeonCount++;
+        CheckPigeon();
         CheckEnding();
         UpdateCount();
     }
@@ -41,6 +44,7 @@ public class GameManager : MonoBehaviour
     public void MinusCount()
     {
         m_pigeonCount--;
+        CheckPigeon();
         UpdateCount();
     }
 
@@ -82,11 +86,26 @@ public class GameManager : MonoBehaviour
 
     public void LoadScene()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
 
     public int GetPigeonCount()
     {
         return m_pigeonCount;
+    }
+
+    public void CheckPigeon()
+    {
+        var count = 0;
+        foreach(Transform pigeon in m_pigeonParent)
+        {
+            count++;
+        }
+        
+        if(m_pigeonCount != count)
+        {
+            m_pigeonCount = count;
+        }
     }
 }
