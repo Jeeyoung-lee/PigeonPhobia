@@ -6,7 +6,7 @@ public class BreadCrumbs : Food
 {
     [Header("HP Αυ°‘·®")]
     [SerializeField]
-    int m_hp = 3;
+    int m_hp;
 
     protected override int GetHP()
     {

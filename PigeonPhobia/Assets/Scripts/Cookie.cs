@@ -6,7 +6,7 @@ public class Cookie : Food
 {
     [Header("HP Αυ°‘·®")]
     [SerializeField]
-    int m_hp = 5;
+    int m_hp;
 
     protected override int GetHP()
     {
