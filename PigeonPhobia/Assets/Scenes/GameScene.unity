@@ -3526,7 +3526,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _range: {fileID: 640173320}
-  _duration: 3
+  m_creationTime: 3
   _foodPrefab:
   - {fileID: 4665813211593894160, guid: aa1e50790b450af4bb48393a6bda8242, type: 3}
   - {fileID: 4665813211593894160, guid: 582e350bfd1d29b4bb4fe2ca9f1d17b2, type: 3}
@@ -4758,6 +4758,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9016f40fb56a8ad448be46f35d29af06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_pigeonAppearTime: 0
+  m_foodAppearTime: 0
+  m_foodCount: 0
 --- !u!1 &1737128153
 GameObject:
   m_ObjectHideFlags: 0

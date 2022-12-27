@@ -7,7 +7,7 @@ public class PigeonFood : MonoBehaviour
     [SerializeField]
     Collider2D _range;
     [SerializeField]
-    float _duration;
+    float m_creationTime;
     [SerializeField]
     GameObject[] _foodPrefab;
     [SerializeField]
@@ -20,7 +20,7 @@ public class PigeonFood : MonoBehaviour
     private void Update()
     {
         m_time += Time.deltaTime;
-        if(m_time > _duration)
+        if(m_time > m_creationTime)
         {
             for(int i = 0; i < GetFoodNumber(); i++)
             {
