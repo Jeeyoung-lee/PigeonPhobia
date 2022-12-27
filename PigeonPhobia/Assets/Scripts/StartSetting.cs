@@ -28,4 +28,20 @@ public class StartSetting : MonoBehaviour
             PrefabManager.instance.CreateNest();
         }
     }
+
+    public void CreatePigeon(int _count)
+    {
+        for (int i = 0; i < _count; i++)
+        {
+            PrefabManager.instance.CreatePigeonRandom();
+        }
+    }
+
+    public void CreateNest(int _count)
+    {
+        for (int i = 0; i < _count; i++)
+        {
+            PrefabManager.instance.CreateNest();
+        }
+    }
 }

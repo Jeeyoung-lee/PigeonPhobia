@@ -94,6 +94,7 @@ public class Pigeon : MonoBehaviour
                 var list = m_gameManager.SkillItem.GetComponent<TriggerChecker>().GetPigeonsList();
                 for(int i = list.Count - 1; i >= 0; i--)
                 {
+                    m_gameManager.MinusCount();
                     Destroy(list[i].gameObject);
                 }
             }

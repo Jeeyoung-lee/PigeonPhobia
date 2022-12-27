@@ -3203,11 +3203,15 @@ MonoBehaviour:
   m_dayText: {fileID: 1634917470}
   m_dayTime: 60
   m_day: 1
+  m_standardPigeonCount: 5
+  m_additionalPigeon: 5
+  m_additionalNest: 1
   m_shop: {fileID: 59743951}
   m_foodList: {fileID: 1124219561}
   m_pigeonList: {fileID: 1900470378}
   m_nestList: {fileID: 279074002}
   m_peakTime: {fileID: 361134804}
+  m_startSetting: {fileID: 1696001364}
 --- !u!114 &1004506095
 MonoBehaviour:
   m_ObjectHideFlags: 0
