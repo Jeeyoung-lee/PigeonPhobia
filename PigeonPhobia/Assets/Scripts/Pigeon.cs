@@ -9,8 +9,6 @@ public class Pigeon : MonoBehaviour
     [Header("비둘기 체력")]
     [SerializeField]
     float m_hp = 3;
-    [SerializeField]
-    float m_delayTime = 0.14f;
 
     float m_time; 
     float m_nestTime = 5;
