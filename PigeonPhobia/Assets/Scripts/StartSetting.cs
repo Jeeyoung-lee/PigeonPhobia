@@ -11,8 +11,12 @@ public class StartSetting : MonoBehaviour
     [SerializeField]
     int m_startNestCount;
 
+    [SerializeField]
+    FadeInOut m_fadeInOut;
+
     private void Start()
     {
+        m_fadeInOut.FadeIn();
         Init();
     }
 

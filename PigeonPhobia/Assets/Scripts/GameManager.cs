@@ -24,7 +24,6 @@ public class GameManager : MonoBehaviour
     public GameObject SkillItem => m_skillItem;
     public int Day => m_day;
 
-
     void Awake() => instance = this;
 
     public void Init()
@@ -53,14 +52,18 @@ public class GameManager : MonoBehaviour
         //"<color=#ff0000>" + 10 + "</color>"
         if(m_pigeonCount >= 40)
         {
-            m_pigeonCountText.text = "<color=#ff0000>" + m_pigeonCount + "</color>" + " / " + m_maxPigeonCount;
+            m_pigeonCountText.text = "<color=#e51111>" + m_pigeonCount + "</color>" + " / " + m_maxPigeonCount;
+        }
+        else if(m_pigeonCount >= 30)
+        {
+            m_pigeonCountText.text = "<color=#ff9d0b>" + m_pigeonCount + "</color>" + " / " + m_maxPigeonCount;
         }
         else
         {
-            m_pigeonCountText.text = "<color=#323232>" + m_pigeonCount + "</color>" + " / " + m_maxPigeonCount;
+            m_pigeonCountText.text = "<color=#927fec>" + m_pigeonCount + "</color>" + " / " + m_maxPigeonCount;
         }
-
     }
+
 
     /// <summary>
     /// ½ºÅ³ ÀåÂø

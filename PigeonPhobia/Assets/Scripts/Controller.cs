@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("비둘기 생성 시간")]
+    [SerializeField]
+    float m_pigeonAppearTime;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [Header("음식 생성 시간")]
+    [SerializeField]
+    float m_foodAppearTime;
+    [Header("한번에 생성되는 음식 개수")]
+    [SerializeField]
+    float m_foodCount;
 }
