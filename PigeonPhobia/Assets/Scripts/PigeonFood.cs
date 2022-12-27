@@ -15,10 +15,24 @@ public class PigeonFood : MonoBehaviour
 
     float[] percent = new float[3] { 70f, 20f, 10f };
 
+    float m_originCreationTime;
     float m_time;
+
+    public float CreationTime
+    {
+        get { return m_creationTime; }
+        set { m_creationTime = value; }
+    }
+
+    private void Start()
+    {
+        m_originCreationTime = m_creationTime;
+    }
 
     private void Update()
     {
+        Debug.Log(m_creationTime);
+
         m_time += Time.deltaTime;
         if(m_time > m_creationTime)
         {
@@ -73,5 +87,10 @@ public class PigeonFood : MonoBehaviour
             }
         }
         return probs.Length - 1;
+    }
+
+    public void InitTime()
+    {
+        m_creationTime = m_originCreationTime;
     }
 }

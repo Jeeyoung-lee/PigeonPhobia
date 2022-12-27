@@ -26,12 +26,17 @@ public class Day : MonoBehaviour
     [SerializeField]
     Transform m_nestList;
 
+    [SerializeField]
+    PeakTime m_peakTime;
+
     private void Update()
     {
         m_dayTime -= Time.deltaTime;
         m_dayTimeText.text = ((int)m_dayTime).ToString();
 
-        if(m_dayTime <= 0)
+        m_peakTime.SetTime(m_dayTime);
+
+        if (m_dayTime <= 0)
         {
             m_shop.gameObject.SetActive(true);
             Init();
