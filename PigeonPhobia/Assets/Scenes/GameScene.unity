@@ -1203,7 +1203,6 @@ MonoBehaviour:
   m_nestRange: {fileID: 640173320}
   m_pigeonPrefab:
   - {fileID: 6398074934134259824, guid: cd89eb2a977b9af4fa9b14f55da09c6e, type: 3}
-  - {fileID: 6398074934134259824, guid: cacc53378e149b044a55d474282ee395, type: 3}
   - {fileID: 6398074934134259824, guid: 71a32b975a0c21344b5d22ac1619f027, type: 3}
   - {fileID: 6398074934134259824, guid: 9cd95e8bd8da76b42b4a252202af45fd, type: 3}
   m_pigeonParent: {fileID: 1900470378}
