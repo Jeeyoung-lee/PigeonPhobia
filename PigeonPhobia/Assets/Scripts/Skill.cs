@@ -19,6 +19,7 @@ public abstract class Skill : MonoBehaviour
     protected bool m_isUseable = true; // 사용 가능한 상태인가?
     protected bool m_isReady; // 준비 되었나?
     protected float m_coolTime;
+    protected bool m_isPossession; // 보유중인가?
 
     protected Camera m_camera;
 
@@ -26,6 +27,12 @@ public abstract class Skill : MonoBehaviour
     {
         get { return m_isUseable; }
         set { m_isUseable = value; }
+    }
+
+    public bool Possession
+    {
+        get { return m_isPossession; }
+        set { m_isPossession = value; }
     }
 
     private void Start()

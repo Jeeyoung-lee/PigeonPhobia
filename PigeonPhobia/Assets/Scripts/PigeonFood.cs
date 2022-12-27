@@ -22,12 +22,30 @@ public class PigeonFood : MonoBehaviour
         m_time += Time.deltaTime;
         if(m_time > _duration)
         {
-            int index = (int)Choose(percent);
-            var prefab = Instantiate(_foodPrefab[index], _foodPrefabParent);
-            var randomX = Random.Range(_range.bounds.min.x, _range.bounds.max.x);
-            var randomY = Random.Range(_range.bounds.min.y, _range.bounds.max.y);
-            prefab.transform.position = new Vector2(randomX, randomY);
-            m_time = 0;
+            for(int i = 0; i < GetFoodNumber(); i++)
+            {
+                int index = (int)Choose(percent);
+                var prefab = Instantiate(_foodPrefab[index], _foodPrefabParent);
+                var randomX = Random.Range(_range.bounds.min.x, _range.bounds.max.x);
+                var randomY = Random.Range(_range.bounds.min.y, _range.bounds.max.y);
+                prefab.transform.position = new Vector2(randomX, randomY);
+                m_time = 0;
+            }
+
+
+        }
+    }
+
+    int GetFoodNumber()
+    {
+        switch(GameManager.instance.Day)
+        {
+            case 1:
+                return 5;
+            case 2:
+                return 6;
+            default:
+                return 7;
         }
     }
 

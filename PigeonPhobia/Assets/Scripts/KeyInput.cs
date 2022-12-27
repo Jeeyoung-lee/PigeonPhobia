@@ -13,7 +13,7 @@ public class KeyInput : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.A))
         {
-            if (!m_skills[0].Useable)
+            if (!m_skills[0].Useable || !m_skills[0].Possession)
                 return;
 
             DestoryItem();
@@ -25,7 +25,7 @@ public class KeyInput : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.S))
         {
-            if (!m_skills[1].Useable)
+            if (!m_skills[1].Useable || !m_skills[1].Possession)
                 return;
 
             DestoryItem();

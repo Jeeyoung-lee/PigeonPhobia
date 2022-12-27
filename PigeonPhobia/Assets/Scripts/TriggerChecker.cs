@@ -8,7 +8,6 @@ public class TriggerChecker : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject.name);
         if(!m_pigeons.Contains(collision.gameObject))
         {
             m_pigeons.Add(collision.gameObject);
