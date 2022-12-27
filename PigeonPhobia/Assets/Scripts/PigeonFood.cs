@@ -41,7 +41,7 @@ public class PigeonFood : MonoBehaviour
         switch(GameManager.instance.Day)
         {
             case 1:
-                return 5;
+                return 3;
             case 2:
                 return 6;
             default:
