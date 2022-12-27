@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_hp: 10
-  m_creationTime: 5
+  m_creationTime: 4
 --- !u!114 &7308240728310226408
 MonoBehaviour:
   m_ObjectHideFlags: 0

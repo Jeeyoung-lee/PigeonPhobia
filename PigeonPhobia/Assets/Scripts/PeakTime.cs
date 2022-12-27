@@ -30,7 +30,7 @@ public class PeakTime : MonoBehaviour
             if (_time <= m_firstPeakTime && !m_isPeakTime)
             {
                 m_isPeakTime = true;
-                m_pigeonFood.CreationTime = m_pigeonFood.CreationTime - (m_pigeonFood.CreationTime * 30) / 100;
+                m_pigeonFood.CreationTime = m_pigeonFood.CreationTime - (m_pigeonFood.CreationTime * 70) / 100;
             }
 
             if (m_isPeakTime)
@@ -39,7 +39,6 @@ public class PeakTime : MonoBehaviour
                 if (m_time >= m_duration)
                 {
                     m_pigeonFood.InitTime();
-                    m_time = 0;
                     m_isPeakTime = false;
                     m_firstEvent = true;
                 }
@@ -50,8 +49,9 @@ public class PeakTime : MonoBehaviour
         {
             if (_time <= m_secondPeakTime && !m_isPeakTime)
             {
+                m_time = 0;
                 m_isPeakTime = true;
-                m_pigeonFood.CreationTime = m_pigeonFood.CreationTime - (m_pigeonFood.CreationTime * 30) / 100;
+                m_pigeonFood.CreationTime = m_pigeonFood.CreationTime - (m_pigeonFood.CreationTime * 70) / 100;
             }
 
             if (m_isPeakTime)
@@ -60,7 +60,6 @@ public class PeakTime : MonoBehaviour
                 if (m_time >= m_duration)
                 {
                     m_pigeonFood.InitTime();
-                    m_time = 0;
                     m_isPeakTime = false;
                     m_secondEvent = true;
                 }

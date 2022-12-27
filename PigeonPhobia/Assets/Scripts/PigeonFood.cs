@@ -13,7 +13,7 @@ public class PigeonFood : MonoBehaviour
     [SerializeField]
     Transform _foodPrefabParent;
 
-    float[] percent = new float[3] { 70f, 20f, 10f };
+    float[] percent = new float[3] { 60f, 25f, 15f };
 
     float m_originCreationTime;
     float m_time;
