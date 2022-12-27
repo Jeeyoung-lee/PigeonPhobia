@@ -9,6 +9,8 @@ public class Pigeon : MonoBehaviour
     [Header("비둘기 체력")]
     [SerializeField]
     float m_hp = 3;
+    [SerializeField]
+    float m_delayTime = 0.14f;
 
     Image m_owner;
     float m_prevPositionX;
@@ -105,7 +107,7 @@ public class Pigeon : MonoBehaviour
     IEnumerator CWaitForTime()
     {
         m_isAttackable = false;
-        yield return new WaitForSeconds(0.14f);
+        yield return new WaitForSeconds(m_delayTime);
         m_isAttackable = true;
     }
 
