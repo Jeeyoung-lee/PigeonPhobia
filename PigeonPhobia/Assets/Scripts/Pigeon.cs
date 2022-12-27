@@ -106,20 +106,11 @@ public class Pigeon : MonoBehaviour
 
         m_hp -= 1;
 
-        StartCoroutine(CWaitForTime());
-
         if (m_hp <= 0)
         {
             m_gameManager.MinusCount();
             Destroy(this.gameObject);
         }
-    }
-
-    IEnumerator CWaitForTime()
-    {
-        m_isAttackable = false;
-        yield return new WaitForSeconds(m_delayTime);
-        m_isAttackable = true;
     }
 
     public void Damaged(int _damage)
@@ -128,8 +119,6 @@ public class Pigeon : MonoBehaviour
             return;
 
         m_hp -= _damage;
-
-        StartCoroutine(CWaitForTime());
 
         if (m_hp <= 0)
         {
