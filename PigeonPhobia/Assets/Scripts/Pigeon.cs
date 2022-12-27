@@ -44,25 +44,52 @@ public class Pigeon : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.GetComponent<Food>() != null)
+        if(collision.gameObject.tag == "food")
         {
-            var hp = collision.GetComponent<Food>().GetFoodHP();
-            m_hp += hp;
-            size += hp * 0.1f;
+            if (collision.GetComponent<Food>() != null)
+            {
+                var hp = collision.GetComponent<Food>().GetFoodHP();
+                m_hp += hp;
+                size += hp * 0.1f;
+            }
+
+            if (m_hp >= 10)
+            {
+                PrefabManager.instance.CreateNest(); // 嫡瘤 积己
+            }
+
+            Destroy(collision.gameObject);
         }
 
-        if(m_hp >= 10)
-        {
-            PrefabManager.instance.CreateNest(); // 嫡瘤 积己
-        }
-
-        Destroy(collision.gameObject);
     }
 
     public void PointerDown()
     {
         if (!m_isAttackable)
             return;
+
+        if(m_gameManager.SkillItem != null)
+        {
+            var skillType = m_gameManager.SkillItem.GetComponent<SkillInfo>().GetSkillType();
+            
+            if(skillType == "A")
+            {
+                m_hp -= 3;
+                FindObjectOfType<SkillA>().Useable = false;
+            }
+            else if(skillType == "S")
+            {
+                FindObjectOfType<SkillS>().Useable = false;
+                var list = m_gameManager.SkillItem.GetComponent<TriggerChecker>().GetPigeonsList();
+                for(int i = list.Count - 1; i >= 0; i--)
+                {
+                    Destroy(list[i].gameObject);
+                }
+            }
+
+            Destroy(m_gameManager.SkillItem);
+            m_gameManager.SetSkillItem(null);
+        }
 
         m_hp -= 1;
 
@@ -80,5 +107,21 @@ public class Pigeon : MonoBehaviour
         m_isAttackable = false;
         yield return new WaitForSeconds(0.14f);
         m_isAttackable = true;
+    }
+
+    public void Damaged(int _damage)
+    {
+        if (!m_isAttackable)
+            return;
+
+        m_hp -= _damage;
+
+        StartCoroutine(CWaitForTime());
+
+        if (m_hp <= 0)
+        {
+            m_gameManager.MinusCount();
+            Destroy(this.gameObject);
+        }
     }
 }

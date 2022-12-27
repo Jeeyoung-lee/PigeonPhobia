@@ -10,8 +10,12 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     Text m_pigeonCountText;
 
-    int m_pigeonCount;
-    const int m_maxPigeonCount = 50;
+    int m_pigeonCount; // 생성된 비둘기 수치
+    const int m_maxPigeonCount = 50; // 비둘기 생성 가능 최대 수치
+
+    GameObject m_skillItem;
+
+    public GameObject SkillItem => m_skillItem;
 
     void Awake() => instance = this;
 
@@ -39,5 +43,13 @@ public class GameManager : MonoBehaviour
             m_pigeonCountText.text = "<color=#323232>" + m_pigeonCount + "</color>" + " / " + m_maxPigeonCount;
         }
 
+    }
+
+    /// <summary>
+    /// 스킬 장착
+    /// </summary>
+    public void SetSkillItem(GameObject _item)
+    {
+        m_skillItem = _item;
     }
 }
