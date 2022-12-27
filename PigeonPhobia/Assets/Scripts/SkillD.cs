@@ -1,18 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class SkillA : Skill
+public class SkillD : Skill
 {
     [SerializeField]
-    GameObject m_skillAPrefab;
+    GameObject m_skillDPrefab;
     [SerializeField]
-    Transform m_skillAParent;
+    Transform m_skillDParent;
     [SerializeField]
-    Sprite m_skillASprite;
+    Sprite m_skillDSprite;
 
-    GameObject m_item;    
+    GameObject m_item;
 
     private void Start()
     {
@@ -23,10 +22,10 @@ public class SkillA : Skill
 
     private void Update()
     {
-        if(m_item != null)
+        if (m_item != null)
             Update_MousePosition();
 
-        if(!m_isUseable && m_coolTime >= 0) // 쿨타임 상태라면
+        if (!m_isUseable && m_coolTime >= 0) // 쿨타임 상태라면
         {
             Use();
             m_coolTime -= Time.deltaTime;
@@ -51,7 +50,7 @@ public class SkillA : Skill
 
     public override void Create()
     {
-        m_item = Instantiate(m_skillAPrefab, m_skillAParent);
+        m_item = Instantiate(m_skillDPrefab, m_skillDParent);
         GameManager.instance.SetSkillItem(m_item);
     }
 
@@ -62,6 +61,6 @@ public class SkillA : Skill
 
     public override void SetImage()
     {
-        m_skillImage.sprite = m_skillASprite;
+        m_skillImage.sprite = m_skillDSprite;
     }
 }

@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public abstract class Skill : MonoBehaviour
 {
+    [SerializeField]
+    protected Image m_skillImage;
     [Header("ÄðÅ¸ÀÓ")]
     [SerializeField]
     protected Text m_remainTime;
@@ -32,7 +34,14 @@ public abstract class Skill : MonoBehaviour
     public bool Possession
     {
         get { return m_isPossession; }
-        set { m_isPossession = value; }
+        set { 
+
+            m_isPossession = value; 
+            if(m_isPossession)
+            {
+                SetImage();
+            }
+        }
     }
 
     private void Start()
@@ -71,4 +80,6 @@ public abstract class Skill : MonoBehaviour
     public abstract void Create();
 
     public abstract GameObject GetItem();
+
+    public abstract void SetImage();
 }

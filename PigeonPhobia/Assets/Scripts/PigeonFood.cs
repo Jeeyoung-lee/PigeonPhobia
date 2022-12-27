@@ -31,8 +31,6 @@ public class PigeonFood : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(m_creationTime);
-
         m_time += Time.deltaTime;
         if(m_time > m_creationTime)
         {

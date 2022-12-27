@@ -85,7 +85,7 @@ public class Pigeon : MonoBehaviour
             
             if(skillType == "A")
             {
-                m_hp -= 8;
+                m_hp -= 999;
                 FindObjectOfType<SkillA>().Useable = false;
             }
             else if(skillType == "S")
@@ -97,6 +97,14 @@ public class Pigeon : MonoBehaviour
                     m_gameManager.MinusCount();
                     Destroy(list[i].gameObject);
                 }
+            }
+            else if(skillType == "D")
+            {
+                FindObjectOfType<SkillD>().Useable = false;
+            }
+            else if(skillType == "F")
+            {
+                FindObjectOfType<SkillF>().Useable = false;
             }
 
             Destroy(m_gameManager.SkillItem);

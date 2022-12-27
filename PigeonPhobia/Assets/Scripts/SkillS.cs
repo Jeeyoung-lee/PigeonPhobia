@@ -8,6 +8,8 @@ public class SkillS : Skill
     GameObject m_skillSPrefab;
     [SerializeField]
     Transform m_skillSParent;
+    [SerializeField]
+    Sprite m_skillSSprite;
 
     Collider2D m_collider;
     GameObject m_item;
@@ -56,5 +58,10 @@ public class SkillS : Skill
     public override GameObject GetItem()
     {
         return m_item;
+    }
+
+    public override void SetImage()
+    {
+        m_skillImage.sprite = m_skillSSprite;
     }
 }

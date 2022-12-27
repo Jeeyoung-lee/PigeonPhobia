@@ -35,19 +35,31 @@ public class KeyInput : MonoBehaviour
             Clear(1);
         }
 
-        //if (Input.GetKeyDown(KeyCode.D))
-        //{
-        //    m_skills[2].Select();
-        //    Clear(2);
-        //}
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            if (!m_skills[2].Useable || !m_skills[2].Possession)
+                return;
 
-        //if (Input.GetKeyDown(KeyCode.F))
-        //{
-        //    m_skills[3].Select();
-        //    Clear(3);
-        //}
+            DestoryItem();
+            m_skills[2].Select();
+            m_skills[2].Create();
+            m_item = m_skills[2].GetItem();
+            Clear(2);
+        }
 
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (!m_skills[3].Useable || !m_skills[3].Possession)
+                return;
+
+            DestoryItem();
+            m_skills[3].Select();
+            m_skills[3].Create();
+            m_item = m_skills[3].GetItem();
+            Clear(3);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             for (int i = 0; i < m_skills.Length; i++)
             {
