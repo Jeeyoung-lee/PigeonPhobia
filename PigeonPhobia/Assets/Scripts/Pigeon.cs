@@ -12,6 +12,9 @@ public class Pigeon : MonoBehaviour
     [SerializeField]
     float m_delayTime = 0.14f;
 
+    float m_time; 
+    float m_nestTime = 5;
+
     Image m_owner;
     float m_prevPositionX;
 
@@ -29,6 +32,17 @@ public class Pigeon : MonoBehaviour
     private void Update()
     {
         m_prevPositionX = transform.position.x;
+
+        if (m_hp >= 10)
+        {
+            m_time += Time.deltaTime;
+            if(m_time >= m_nestTime)
+            {
+                PrefabManager.instance.CreateNest(); // 嫡瘤 积己
+                m_time = 0;
+            }
+
+        }
     }
 
     private void LateUpdate()
@@ -55,10 +69,7 @@ public class Pigeon : MonoBehaviour
                 size += hp * 0.1f;
             }
 
-            if (m_hp >= 10)
-            {
-                PrefabManager.instance.CreateNest(); // 嫡瘤 积己
-            }
+
 
             Destroy(collision.gameObject);
         }
