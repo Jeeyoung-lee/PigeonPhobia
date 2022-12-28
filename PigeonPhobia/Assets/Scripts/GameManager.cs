@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     Text m_pigeonCountText;
     [SerializeField]
-    GameObject m_ending;
+    Ending m_ending;
     [SerializeField]
     Transform m_pigeonParent;
     [SerializeField]
@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            m_pigeonCountText.text = "<color=#927fec>" + m_pigeonCount + "</color>" + " / " + m_maxPigeonCount;
+            m_pigeonCountText.text = "<color=#547584>" + m_pigeonCount + "</color>" + " / " + m_maxPigeonCount;
         }
     }
 
@@ -100,12 +100,32 @@ public class GameManager : MonoBehaviour
 
     void CheckEnding()
     {
-        if(m_pigeonCount >= 50 && !m_isEnding || m_day > 5 && !m_isEnding)
+        if(!m_isEnding)
         {
-            StartCoroutine(CWaitTime());
-            m_fadeInOut.FadeIn();
-            m_ending.SetActive(true);
-            m_isEnding = true;
+            if(m_day > 5 && m_pigeonCount <= 0 && m_nestParent.childCount <= 0)
+            {
+                StartCoroutine(CWaitTime());
+                m_fadeInOut.FadeIn();
+                m_ending.Show(0);
+                m_ending.gameObject.SetActive(true);
+                m_isEnding = true;
+            }
+            else if(m_day > 5)
+            {
+                StartCoroutine(CWaitTime());
+                m_fadeInOut.FadeIn();
+                m_ending.Show(1);
+                m_ending.gameObject.SetActive(true);
+                m_isEnding = true;
+            }
+            else if(m_pigeonCount >= 50)
+            {
+                StartCoroutine(CWaitTime());
+                m_fadeInOut.FadeIn();
+                m_ending.Show(2);
+                m_ending.gameObject.SetActive(true);
+                m_isEnding = true;
+            }
         }
     }
 
@@ -118,6 +138,10 @@ public class GameManager : MonoBehaviour
     public void LoadScene()
     {
         Time.timeScale = 1;
+        var audio = GameObject.Find("BackgroundMusic").GetComponent<AudioSource>();
+        audio.Stop();
+        audio.Play();
+        audio.volume = 1;
         SceneManager.LoadScene(0);
     }
 
