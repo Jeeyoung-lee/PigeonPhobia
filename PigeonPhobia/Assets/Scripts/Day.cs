@@ -54,7 +54,7 @@ public class Day : MonoBehaviour
             m_day++;
             GameManager.instance.SetDay(m_day);
             m_dayText.text = m_day.ToString();
-            m_dayTime = 61;
+            m_dayTime = 41;
         }
     }
 
