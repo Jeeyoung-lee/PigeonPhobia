@@ -22,6 +22,9 @@ public class Shop : MonoBehaviour
     Button[] m_skillItemBtns;
 
     [SerializeField]
+    Text m_dayText;
+
+    [SerializeField]
     Image m_newPigeonImage;
     [SerializeField]
     Sprite[] m_newPigeonSprits;
@@ -34,11 +37,13 @@ public class Shop : MonoBehaviour
     string m_selectSkillName;
     GameObject m_selectSkill;
 
+
     int m_day;
 
     private void OnEnable()
     {
         Init();
+        SoundManager.instance.PlayShopSound();
     }
 
     private void Start()
@@ -60,6 +65,7 @@ public class Shop : MonoBehaviour
                 m_skillDescription.text = "뜰채를 휘둘러 비둘기를 즉시 쫓아냅니다";
                 m_targetText.text = "대상 : " + "비둘기 1개체";
                 m_skillInfoText.text = "A 버튼을 눌러 사용 가능";
+                m_dayText.text = "2일차로"; 
                 break;
             case 2:
                 m_newPigeonImage.sprite = m_newPigeonSprits[1];
@@ -68,6 +74,7 @@ public class Shop : MonoBehaviour
                 m_skillDescription.text = "그물에 포획된 비둘기는 즉시 사라집니다";
                 m_targetText.text = "대상 : " + "포획된 비둘기 전부";
                 m_skillInfoText.text = "S 버튼을 눌러 사용 가능";
+                m_dayText.text = "3일차로";
                 break;
             case 3:
                 m_newPigeonImage.sprite = m_newPigeonSprits[2];
@@ -76,6 +83,7 @@ public class Shop : MonoBehaviour
                 m_skillDescription.text = "비둘기에게 피해를 주는 덫을 생성합니다";
                 m_targetText.text = "대상 : " + "덫을 밟은 비둘기";
                 m_skillInfoText.text = "D 버튼을 눌러 사용 가능";
+                m_dayText.text = "4일차로";
                 break;
             case 4:
                 m_newSkillImage.sprite = m_newSkillSprits[3];
@@ -83,6 +91,7 @@ public class Shop : MonoBehaviour
                 m_skillDescription.text = "둥지 하나를 랜덤으로 즉시 철거합니다";
                 m_targetText.text = "대상 : " + "둥지";
                 m_skillInfoText.text = "F 버튼을 눌러 사용 가능";
+                m_dayText.text = "마지막날";
                 break;
         }
     }
@@ -213,5 +222,10 @@ public class Shop : MonoBehaviour
         gameObject.SetActive(false);
         GameManager.instance.isStart = true;
         Time.timeScale = 1;
+    }
+
+    private void OnDisable()
+    {
+        SoundManager.instance.PlayGameSound();
     }
 }
