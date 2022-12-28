@@ -17,6 +17,12 @@ public class StartSetting : MonoBehaviour
     private void Start()
     {
         m_fadeInOut.FadeIn();
+        StartCoroutine(CWaitTime());
+    }
+
+    IEnumerator CWaitTime()
+    {
+        yield return new WaitForSeconds(1.5f);
         Init();
     }
 

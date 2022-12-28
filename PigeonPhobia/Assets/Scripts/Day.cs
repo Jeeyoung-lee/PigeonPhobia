@@ -43,6 +43,9 @@ public class Day : MonoBehaviour
     [SerializeField]
     StartSetting m_startSetting;
 
+    [SerializeField]
+    FadeInOut m_fadeInOut;
+
     private void Update()
     {
         m_dayTime -= Time.deltaTime;
@@ -52,13 +55,14 @@ public class Day : MonoBehaviour
 
         if (m_dayTime <= 0)
         {
+            m_fadeInOut.FadeIn();
             m_shop.gameObject.SetActive(true);
             Init();
-            Time.timeScale = 0;
+
             m_day++;
             GameManager.instance.SetDay(m_day);
             m_dayText.text = m_day.ToString();
-            m_dayTime = 60;
+            m_dayTime = 61;
         }
     }
 
@@ -74,7 +78,7 @@ public class Day : MonoBehaviour
             Destroy(element.gameObject);
         }
 
-        StageInit();
+        StartCoroutine(CWaitTime());
         //foreach (Transform element in m_pigeonList)
         //{
         //    Destroy(element.gameObject);
@@ -89,5 +93,12 @@ public class Day : MonoBehaviour
             m_startSetting.CreatePigeon(m_additionalPigeon);
             m_startSetting.CreateNest(m_additionalNest);
         }
+    }
+
+    IEnumerator CWaitTime()
+    {
+        yield return new WaitForSeconds(1.5f);
+        StageInit();
+        Time.timeScale = 0;
     }
 }
