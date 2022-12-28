@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6398074934134259818}
   - component: {fileID: 2175697040432696861}
   m_Layer: 5
-  m_Name: Pigeon 2
+  m_Name: Pigeon_Bread
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

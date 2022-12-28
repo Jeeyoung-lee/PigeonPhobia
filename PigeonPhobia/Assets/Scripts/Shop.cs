@@ -16,6 +16,10 @@ public class Shop : MonoBehaviour
     Button m_nextDayBtn;
     [SerializeField]
     Button[] m_skillItemBtns;
+    [SerializeField]
+    Image m_newPigeonImage;
+    [SerializeField]
+    Sprite[] m_newPigeonSprits;
 
     string m_selectSkillName;
     GameObject m_selectSkill;
@@ -33,7 +37,20 @@ public class Shop : MonoBehaviour
 
     void Init()
     {
+        var day = GameManager.instance.Day;
 
+        switch (day)
+        {
+            case 1:
+                m_newPigeonImage.sprite = m_newPigeonSprits[0];
+                break;
+            case 2:
+                m_newPigeonImage.sprite = m_newPigeonSprits[1];
+                break;
+            case 3:
+                m_newPigeonImage.sprite = m_newPigeonSprits[2];
+                break;
+        }
     }
 
     public void Select(string _skillName)
