@@ -76,10 +76,13 @@ public class SkillF : Skill
             list.Add(nest.gameObject);
         }
 
-        var index = Random.Range(0, list.Count);
-        list[index].transform.GetChild(0).gameObject.SetActive(true);
-        list[index].GetComponent<Nest>().Creationable = false;
-        StartCoroutine(CMove(list[index]));
+        if(count > 0)
+        {
+            var index = Random.Range(0, list.Count);
+            list[index].transform.GetChild(0).gameObject.SetActive(true);
+            list[index].GetComponent<Nest>().Creationable = false;
+            StartCoroutine(CMove(list[index]));
+        }
     }
 
     IEnumerator CMove(GameObject gameObject)

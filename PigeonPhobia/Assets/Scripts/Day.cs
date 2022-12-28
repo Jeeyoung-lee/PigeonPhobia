@@ -16,17 +16,6 @@ public class Day : MonoBehaviour
     [SerializeField]
     int m_day = 1;
 
-    [Header("비둘기가 몇 마리 이하일때")]
-    [SerializeField]
-    int m_standardPigeonCount;
-    [Header("추가로 생성할 비둘기")]
-    [SerializeField]
-    int m_additionalPigeon;
-    [Header("추가로 생성할 둥지")]
-    [SerializeField]
-    int m_additionalNest;
-
-
     [SerializeField]
     Shop m_shop;
 
@@ -45,6 +34,9 @@ public class Day : MonoBehaviour
 
     [SerializeField]
     FadeInOut m_fadeInOut;
+
+    [SerializeField]
+    StageSetting m_stageSetting;
 
     private void Update()
     {
@@ -88,10 +80,15 @@ public class Day : MonoBehaviour
     void StageInit()
     {
         var pigeonCount = GameManager.instance.GetPigeonCount(); // 남아 있는 비둘기 수
-        if(pigeonCount <= m_standardPigeonCount)
+        var stageArray = m_stageSetting.SetStage(m_day);
+        foreach(var stage in stageArray)
         {
-            m_startSetting.CreatePigeon(m_additionalPigeon);
-            m_startSetting.CreateNest(m_additionalNest);
+            if (pigeonCount <= stage.m_standardPigeonCount)
+            {
+                m_startSetting.CreatePigeon(stage.m_additionalPigeon);
+                m_startSetting.CreateNest(stage.m_additionalNest);
+                break;
+            }
         }
     }
 

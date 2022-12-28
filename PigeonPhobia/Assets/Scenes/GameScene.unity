@@ -3550,9 +3550,6 @@ MonoBehaviour:
   m_dayText: {fileID: 1634917470}
   m_dayTime: 60
   m_day: 1
-  m_standardPigeonCount: 5
-  m_additionalPigeon: 5
-  m_additionalNest: 1
   m_shop: {fileID: 59743951}
   m_foodList: {fileID: 1124219561}
   m_pigeonList: {fileID: 1900470378}
@@ -3560,6 +3557,7 @@ MonoBehaviour:
   m_peakTime: {fileID: 361134804}
   m_startSetting: {fileID: 1696001364}
   m_fadeInOut: {fileID: 857420463}
+  m_stageSetting: {fileID: 1696001365}
 --- !u!114 &1004506095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5153,6 +5151,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1696001363}
   - component: {fileID: 1696001364}
+  - component: {fileID: 1696001365}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -5186,9 +5185,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b472fe936c40e24aac57f64f69fb415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_startPigeonCount: 15
+  m_startPigeonCount: 2
   m_startNestCount: 4
   m_fadeInOut: {fileID: 857420463}
+--- !u!114 &1696001365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696001362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d13c246bd1a06d44c9d9c3d44e7f7f1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_stage2:
+  - m_standardPigeonCount: 3
+    m_additionalPigeon: 10
+    m_additionalNest: 0
+  - m_standardPigeonCount: 5
+    m_additionalPigeon: 5
+    m_additionalNest: 0
+  - m_standardPigeonCount: 10
+    m_additionalPigeon: 3
+    m_additionalNest: 0
+  m_stage3: []
+  m_stage4: []
+  m_stage5: []
 --- !u!1 &1737128153
 GameObject:
   m_ObjectHideFlags: 0
