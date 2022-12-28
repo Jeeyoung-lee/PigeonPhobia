@@ -954,6 +954,7 @@ MonoBehaviour:
   m_pigeonParent: {fileID: 1900470378}
   m_nestParent: {fileID: 279074002}
   m_fadeInOut: {fileID: 857420463}
+  m_dayTime: {fileID: 1004506094}
 --- !u!4 &274212533
 Transform:
   m_ObjectHideFlags: 0
@@ -1364,9 +1365,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 595ed84472fa45a469052b3c2293507b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_firstPeakTime: 40
-  m_secondPeakTime: 20
-  m_duration: 8
+  m_firstPeakTime: 25
+  m_secondPeakTime: 10
+  m_duration: 5
   m_pigeonFood: {fileID: 1124219562}
 --- !u!1 &423988271
 GameObject:

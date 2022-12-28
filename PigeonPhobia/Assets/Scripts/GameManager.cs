@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     FadeInOut m_fadeInOut;
+    [SerializeField]
+    Day m_dayTime;
 
     int m_pigeonCount; // 생성된 비둘기 수치
     const int m_maxPigeonCount = 50; // 비둘기 생성 가능 최대 수치
@@ -34,7 +36,10 @@ public class GameManager : MonoBehaviour
     public bool isStart
     {
         get { return m_isStart; }
-        set { m_isStart = value; }
+        set
+        {
+            m_isStart = value;
+        }
     }
 
     void Awake() => instance = this;
@@ -136,7 +141,7 @@ public class GameManager : MonoBehaviour
 
         if (m_pigeonCount <= 0 && m_nestParent.childCount <= 0)
         {
-            Time.timeScale = 8;
+            m_dayTime.DayTime = 0f;
         }
         else
         {

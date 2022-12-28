@@ -38,6 +38,12 @@ public class Day : MonoBehaviour
     [SerializeField]
     StageSetting m_stageSetting;
 
+    public float DayTime
+    {
+        get { return m_dayTime; }
+        set { m_dayTime = value; }
+    }
+
     private void Update()
     {
         m_dayTime -= Time.deltaTime;
@@ -65,10 +71,10 @@ public class Day : MonoBehaviour
             Destroy(element.gameObject);
         }
 
-        foreach (Transform element in m_nestList)
-        {
-            Destroy(element.gameObject);
-        }
+        //foreach (Transform element in m_nestList)
+        //{
+        //    Destroy(element.gameObject);
+        //}
 
         StartCoroutine(CWaitTime());
         //foreach (Transform element in m_pigeonList)

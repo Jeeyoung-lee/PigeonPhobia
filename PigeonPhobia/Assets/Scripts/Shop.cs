@@ -190,23 +190,21 @@ public class Shop : MonoBehaviour
         {
             case 1:
                 FindObjectOfType<SkillA>().Possession = true;
-                m_buyBtn.interactable = false;
+                NextDay();
                 break;
             case 2:
                 FindObjectOfType<SkillS>().Possession = true;
-                m_buyBtn.interactable = false;
+                NextDay();
                 break;
             case 3:
                 FindObjectOfType<SkillD>().Possession = true;
-                m_buyBtn.interactable = false;
+                NextDay();
                 break;
             case 4:
                 FindObjectOfType<SkillF>().Possession = true;
-                m_buyBtn.interactable = false;
+                NextDay();
                 break;
         }
-
-        NextDay();
     }
 
     void NextDay()
