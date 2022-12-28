@@ -55,14 +55,14 @@ public class Day : MonoBehaviour
 
         if (m_dayTime <= 0)
         {
-            m_fadeInOut.FadeIn();
+            m_fadeInOut.FadeIn(1f);
             m_shop.gameObject.SetActive(true);
             Init();
 
             m_day++;
             GameManager.instance.SetDay(m_day);
             m_dayText.text = m_day.ToString();
-            m_dayTime = 61;
+            m_dayTime = 62;
         }
     }
 
@@ -97,7 +97,7 @@ public class Day : MonoBehaviour
 
     IEnumerator CWaitTime()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         StageInit();
         Time.timeScale = 0;
     }

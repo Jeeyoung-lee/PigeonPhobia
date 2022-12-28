@@ -935,6 +935,7 @@ MonoBehaviour:
   m_pigeonCountText: {fileID: 1759132586}
   m_ending: {fileID: 1526582762}
   m_pigeonParent: {fileID: 1900470378}
+  m_fadeInOut: {fileID: 857420463}
 --- !u!4 &274212533
 Transform:
   m_ObjectHideFlags: 0
@@ -3547,7 +3548,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_dayTimeText: {fileID: 1204366612}
   m_dayText: {fileID: 1634917470}
-  m_dayTime: 60
+  m_dayTime: 5
   m_day: 1
   m_standardPigeonCount: 5
   m_additionalPigeon: 5

@@ -20,4 +20,9 @@ public class FadeInOut : MonoBehaviour
     {
         m_image.DOFade(0, 0).OnComplete(() => m_image.DOFade(1, m_duration));
     }
+
+    public void FadeIn(float _time)
+    {
+        m_image.DOFade(1, 0).OnComplete(() => m_image.DOFade(0, _time));
+    }
 }

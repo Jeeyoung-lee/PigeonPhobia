@@ -149,6 +149,7 @@ public class Shop : MonoBehaviour
 
     void NextDay()
     {
+        FindObjectOfType<FadeInOut>().FadeIn();
         gameObject.SetActive(false);
         Time.timeScale = 1;
     }

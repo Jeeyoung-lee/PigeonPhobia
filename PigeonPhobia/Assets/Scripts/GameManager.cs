@@ -15,10 +15,14 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     Transform m_pigeonParent;
 
+    [SerializeField]
+    FadeInOut m_fadeInOut;
+
     int m_pigeonCount; // 생성된 비둘기 수치
     const int m_maxPigeonCount = 50; // 비둘기 생성 가능 최대 수치
 
     GameObject m_skillItem;
+    bool m_isEnding;
     int m_day = 1;
 
     public GameObject SkillItem => m_skillItem;
@@ -80,11 +84,19 @@ public class GameManager : MonoBehaviour
 
     void CheckEnding()
     {
-        if(m_pigeonCount >= 50)
+        if(m_pigeonCount >= 50 && !m_isEnding)
         {
-            Time.timeScale = 0;
+            StartCoroutine(CWaitTime());
+            m_fadeInOut.FadeIn();
             m_ending.SetActive(true);
+            m_isEnding = true;
         }
+    }
+
+    IEnumerator CWaitTime()
+    {
+        yield return new WaitForSeconds(1.5f);
+        Time.timeScale = 0;
     }
 
     public void LoadScene()
