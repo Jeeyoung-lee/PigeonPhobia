@@ -140,6 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_hp: 2
+  m_name: bread
 --- !u!114 &6398074934134259818
 MonoBehaviour:
   m_ObjectHideFlags: 0

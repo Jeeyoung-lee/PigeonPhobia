@@ -16,13 +16,21 @@ public class Shop : MonoBehaviour
     Button m_nextDayBtn;
     [SerializeField]
     Button[] m_skillItemBtns;
+
     [SerializeField]
     Image m_newPigeonImage;
     [SerializeField]
     Sprite[] m_newPigeonSprits;
 
+    [SerializeField]
+    Image m_newSkillImage;
+    [SerializeField]
+    Sprite[] m_newSkillSprits;
+
     string m_selectSkillName;
     GameObject m_selectSkill;
+
+    int m_day;
 
     private void OnEnable()
     {
@@ -37,18 +45,24 @@ public class Shop : MonoBehaviour
 
     void Init()
     {
-        var day = GameManager.instance.Day;
+        m_day = GameManager.instance.Day;
 
-        switch (day)
+        switch (m_day)
         {
             case 1:
                 m_newPigeonImage.sprite = m_newPigeonSprits[0];
+                m_newSkillImage.sprite = m_newSkillSprits[0];
                 break;
             case 2:
                 m_newPigeonImage.sprite = m_newPigeonSprits[1];
+                m_newSkillImage.sprite = m_newSkillSprits[1];
                 break;
             case 3:
                 m_newPigeonImage.sprite = m_newPigeonSprits[2];
+                m_newSkillImage.sprite = m_newSkillSprits[2];
+                break;
+            case 4:
+                m_newSkillImage.sprite = m_newSkillSprits[3];
                 break;
         }
     }
@@ -77,6 +91,12 @@ public class Shop : MonoBehaviour
                 break;
             case "S":
 
+                if(m_day <= 1)
+                {
+                    m_buyBtn.interactable = false;
+                    return;
+                }
+
                 if (FindObjectOfType<SkillS>().Possession)
                 {
                     m_buyBtn.GetComponentInChildren<Text>().text = "È¹µæ ¿Ï·á";
@@ -95,6 +115,12 @@ public class Shop : MonoBehaviour
                 break;
             case "D":
 
+                if (m_day <= 2)
+                {
+                    m_buyBtn.interactable = false;
+                    return;
+                }
+
                 if (FindObjectOfType<SkillD>().Possession)
                 {
                     m_buyBtn.GetComponentInChildren<Text>().text = "È¹µæ ¿Ï·á";
@@ -112,6 +138,12 @@ public class Shop : MonoBehaviour
                 m_selectSkill = EventSystem.current.currentSelectedGameObject;
                 break;
             case "F":
+
+                if (m_day <= 3)
+                {
+                    m_buyBtn.interactable = false;
+                    return;
+                }
 
                 if (FindObjectOfType<SkillF>().Possession)
                 {
@@ -168,6 +200,7 @@ public class Shop : MonoBehaviour
     {
         FindObjectOfType<FadeInOut>().FadeIn();
         gameObject.SetActive(false);
+        GameManager.instance.isStart = true;
         Time.timeScale = 1;
     }
 }

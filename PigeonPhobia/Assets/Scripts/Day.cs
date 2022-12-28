@@ -50,7 +50,7 @@ public class Day : MonoBehaviour
             m_fadeInOut.FadeIn(1f);
             m_shop.gameObject.SetActive(true);
             Init();
-
+            GameManager.instance.isStart = false;
             m_day++;
             GameManager.instance.SetDay(m_day);
             m_dayText.text = m_day.ToString();

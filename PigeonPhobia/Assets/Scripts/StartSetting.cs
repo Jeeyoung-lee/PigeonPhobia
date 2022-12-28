@@ -34,6 +34,7 @@ public class StartSetting : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         Init();
+        GameManager.instance.isStart = true;
     }
 
     public void Init()

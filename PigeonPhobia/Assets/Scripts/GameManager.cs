@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     GameObject m_ending;
     [SerializeField]
     Transform m_pigeonParent;
+    [SerializeField]
+    Transform m_nestParent;
 
     [SerializeField]
     FadeInOut m_fadeInOut;
@@ -24,31 +26,40 @@ public class GameManager : MonoBehaviour
     GameObject m_skillItem;
     bool m_isEnding;
     int m_day = 1;
+    bool m_isStart;
 
     public GameObject SkillItem => m_skillItem;
     public int Day => m_day;
 
+    public bool isStart
+    {
+        get { return m_isStart; }
+        set { m_isStart = value; }
+    }
+
     void Awake() => instance = this;
+
+    private void LateUpdate()
+    {
+        CheckPigeon();
+        UpdateCount();
+        CheckGame();
+    }
 
     public void Init()
     {
         m_pigeonCount = 0;
-        UpdateCount();
     }
 
     public void PlusCount()
     {
         m_pigeonCount++;
-        CheckPigeon();
         CheckEnding();
-        UpdateCount();
     }
 
     public void MinusCount()
     {
         m_pigeonCount--;
-        CheckPigeon();
-        UpdateCount();
     }
 
     void UpdateCount()
@@ -84,7 +95,7 @@ public class GameManager : MonoBehaviour
 
     void CheckEnding()
     {
-        if(m_pigeonCount >= 50 && !m_isEnding)
+        if(m_pigeonCount >= 50 && !m_isEnding || m_day > 5 && !m_isEnding)
         {
             StartCoroutine(CWaitTime());
             m_fadeInOut.FadeIn();
@@ -112,15 +123,24 @@ public class GameManager : MonoBehaviour
 
     public void CheckPigeon()
     {
-        var count = 0;
-        foreach(Transform pigeon in m_pigeonParent)
+        if(m_pigeonCount != m_pigeonParent.childCount)
         {
-            count++;
+            m_pigeonCount = m_pigeonParent.childCount;
         }
-        
-        if(m_pigeonCount != count)
+    }
+
+    void CheckGame()
+    {
+        if (!isStart)
+            return;
+
+        if (m_pigeonCount <= 0 && m_nestParent.childCount <= 0)
         {
-            m_pigeonCount = count;
+            Time.timeScale = 8;
+        }
+        else
+        {
+            Time.timeScale = 1;
         }
     }
 }

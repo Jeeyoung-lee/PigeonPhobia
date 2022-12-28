@@ -19,6 +19,8 @@ public class Pigeon : MonoBehaviour
     float size = 1;
     bool m_isAttackable = true;
 
+    public string m_name;
+
     GameManager m_gameManager;
 
     private void Start()
@@ -63,6 +65,12 @@ public class Pigeon : MonoBehaviour
             if (collision.GetComponent<Food>() != null)
             {
                 var hp = collision.GetComponent<Food>().GetFoodHP();
+
+                if(m_name == "bread")
+                {
+                    hp += 1;
+                }
+
                 m_hp += hp;
                 size += hp * 0.1f;
             }
