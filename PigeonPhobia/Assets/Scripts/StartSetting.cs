@@ -14,8 +14,18 @@ public class StartSetting : MonoBehaviour
     [SerializeField]
     FadeInOut m_fadeInOut;
 
+    [SerializeField]
+    GameObject m_story;
+
     private void Start()
     {
+        Time.timeScale = 0;
+    }
+
+    public void GameStart()
+    {
+        Time.timeScale = 1;
+        m_story.SetActive(false);
         m_fadeInOut.FadeIn();
         StartCoroutine(CWaitTime());
     }
