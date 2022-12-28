@@ -6152,25 +6152,25 @@ MonoBehaviour:
   m_stage2:
   - m_standardPigeonCount: 3
     m_additionalPigeon: 10
-    m_additionalNest: 0
+    m_additionalNest: 1
   - m_standardPigeonCount: 5
     m_additionalPigeon: 5
-    m_additionalNest: 0
+    m_additionalNest: 1
   - m_standardPigeonCount: 10
     m_additionalPigeon: 3
-    m_additionalNest: 0
+    m_additionalNest: 1
   m_stage3:
   - m_standardPigeonCount: 5
-    m_additionalPigeon: 5
-    m_additionalNest: 1
+    m_additionalPigeon: 10
+    m_additionalNest: 2
   m_stage4:
   - m_standardPigeonCount: 5
-    m_additionalPigeon: 5
-    m_additionalNest: 1
+    m_additionalPigeon: 10
+    m_additionalNest: 2
   m_stage5:
   - m_standardPigeonCount: 5
-    m_additionalPigeon: 5
-    m_additionalNest: 1
+    m_additionalPigeon: 10
+    m_additionalNest: 2
 --- !u!1 &1737128153
 GameObject:
   m_ObjectHideFlags: 0
