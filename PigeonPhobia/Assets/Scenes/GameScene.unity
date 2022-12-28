@@ -3730,7 +3730,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_dayTimeText: {fileID: 1204366612}
   m_dayText: {fileID: 1634917470}
-  m_dayTime: 5
+  m_dayTime: 60
   m_day: 1
   m_shop: {fileID: 59743951}
   m_foodList: {fileID: 1124219561}
