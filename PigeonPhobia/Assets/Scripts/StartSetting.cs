@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class StartSetting : MonoBehaviour
 {
@@ -17,9 +18,16 @@ public class StartSetting : MonoBehaviour
     [SerializeField]
     GameObject m_story;
 
+    [SerializeField]
+    AudioSource m_audio;
+
+    AudioSource m_title;
+
     private void Start()
     {
         Time.timeScale = 0;
+        m_title = GameObject.Find("BackgroundMusic").GetComponent<AudioSource>();
+        m_title.DOFade(0, 2f);
     }
 
     public void GameStart()
@@ -35,6 +43,7 @@ public class StartSetting : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         Init();
         GameManager.instance.isStart = true;
+        m_audio.enabled = true;
     }
 
     public void Init()
