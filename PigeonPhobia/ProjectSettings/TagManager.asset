@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - food
+  - skill
   layers:
   - Default
   - TransparentFX

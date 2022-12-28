@@ -12,11 +12,10 @@ GameObject:
   - component: {fileID: 4826643236710793529}
   - component: {fileID: 86006091227202116}
   - component: {fileID: 6301720483535405247}
-  - component: {fileID: 559286798855262302}
   - component: {fileID: 7691008907383737087}
   m_Layer: 5
   m_Name: SkillD
-  m_TagString: Untagged
+  m_TagString: skill
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 92b7024ad724ab645b88c6b4d8d934f2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c3669c1f95567c84bb77b84493c774bd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -88,7 +87,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -104,18 +103,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 150, y: 150}
   m_EdgeRadius: 0
---- !u!114 &559286798855262302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8644711318456673158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee801203759bc8645ad83ab4a7965f33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7691008907383737087
 MonoBehaviour:
   m_ObjectHideFlags: 0

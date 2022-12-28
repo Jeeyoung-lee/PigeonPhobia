@@ -12,17 +12,18 @@ public class SkillD : Skill
     Sprite m_skillDSprite;
 
     GameObject m_item;
+    bool m_useSkill;
 
     private void Start()
     {
         m_camera = Camera.main;
-        m_coolTime = 5;
+        m_coolTime = 8;
         Init();
     }
 
     private void Update()
     {
-        if (m_item != null)
+        if (m_item != null && !m_useSkill)
             Update_MousePosition();
 
         if (!m_isUseable && m_coolTime >= 0) // 쿨타임 상태라면
@@ -35,8 +36,18 @@ public class SkillD : Skill
             {
                 Init();
                 m_isUseable = true;
-                m_coolTime = 5;
+                m_coolTime = 8;
             }
+        }
+
+        if (Input.GetMouseButtonDown(0)) // 덫 설치
+        {
+            if (!m_isPossession || m_item == null)
+                return;
+
+            m_item.GetComponent<BoxCollider2D>().isTrigger = true;
+            m_useSkill = true;
+            Update_MousePosition();
         }
 
     }
@@ -50,6 +61,7 @@ public class SkillD : Skill
 
     public override void Create()
     {
+        m_useSkill = false;
         m_item = Instantiate(m_skillDPrefab, m_skillDParent);
         GameManager.instance.SetSkillItem(m_item);
     }

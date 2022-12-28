@@ -10,13 +10,15 @@ public class SkillF : Skill
     Transform m_skillFParent;
     [SerializeField]
     Sprite m_skillFSprite;
+    [SerializeField]
+    Transform m_nestParent;
 
     GameObject m_item;
 
     private void Start()
     {
         m_camera = Camera.main;
-        m_coolTime = 5;
+        m_coolTime = 20;
         Init();
     }
 
@@ -35,7 +37,7 @@ public class SkillF : Skill
             {
                 Init();
                 m_isUseable = true;
-                m_coolTime = 5;
+                m_coolTime = 20;
             }
         }
 
@@ -62,5 +64,44 @@ public class SkillF : Skill
     public override void SetImage()
     {
         m_skillImage.sprite = m_skillFSprite;
+    }
+
+    public void UseSkill()
+    {
+        var count = 0;
+        var list = new List<GameObject>();
+        foreach(Transform nest in m_nestParent)
+        {
+            count++;
+            list.Add(nest.gameObject);
+        }
+
+        var index = Random.Range(0, list.Count);
+        list[index].transform.GetChild(0).gameObject.SetActive(true);
+        list[index].GetComponent<Nest>().Creationable = false;
+        StartCoroutine(CMove(list[index]));
+    }
+
+    IEnumerator CMove(GameObject gameObject)
+    {
+        while(true)
+        {
+            gameObject.transform.Translate(Vector2.up * 2 * Time.deltaTime);
+            
+            if(!CheckCamera(gameObject))
+            {
+                Destroy(gameObject);
+                break;
+            }
+
+            yield return null;
+        }
+    }
+
+    bool CheckCamera(GameObject gameObject)
+    {
+        var screenPoint = Camera.main.WorldToViewportPoint(gameObject.transform.position);
+        bool onScreen = screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
+        return onScreen;
     }
 }

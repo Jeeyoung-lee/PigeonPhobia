@@ -38,6 +38,7 @@ public class PrefabManager : MonoBehaviour
         var randomX = Random.Range(m_nestRange.bounds.min.x, m_nestRange.bounds.max.x);
         var randomY = Random.Range(m_nestRange.bounds.min.y, m_nestRange.bounds.max.y);
         nest.transform.position = new Vector2(randomX, randomY);
+        nest.GetComponent<Nest>().Creationable = true;
 
         return nest;
     }

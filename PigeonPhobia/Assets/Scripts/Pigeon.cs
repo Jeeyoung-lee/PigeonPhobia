@@ -67,11 +67,23 @@ public class Pigeon : MonoBehaviour
                 size += hp * 0.1f;
             }
 
-
-
             Destroy(collision.gameObject);
         }
 
+        if (collision.gameObject.tag == "skill")
+        {
+            m_hp -= 8;
+            FindObjectOfType<SkillD>().Useable = false;
+            Destroy(m_gameManager.SkillItem);
+            m_gameManager.SetSkillItem(null);
+            Destroy(collision.gameObject);
+
+            if (m_hp <= 0)
+            {
+                m_gameManager.MinusCount();
+                Destroy(this.gameObject);
+            }
+        }
     }
 
     public void PointerDown()
@@ -101,10 +113,6 @@ public class Pigeon : MonoBehaviour
             else if(skillType == "D")
             {
                 FindObjectOfType<SkillD>().Useable = false;
-            }
-            else if(skillType == "F")
-            {
-                FindObjectOfType<SkillF>().Useable = false;
             }
 
             Destroy(m_gameManager.SkillItem);

@@ -705,7 +705,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC2A4\uD0AC \uC124\uBA85"
+  m_Text: "\uD68D\uB4DD\uD558\uACE0 \uC2F6\uC740 \uC2A4\uD0AC\uC744 \uC120\uD0DD\uD558\uC138\uC694!"
 --- !u!222 &163513983
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2723,7 +2723,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC2A4\uD0AC \uC774\uB984"
+  m_Text: "\uC2A4\uD0AC \uD68D\uB4DD"
 --- !u!222 &833800091
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3840,7 +3840,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: D
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1051822938
@@ -4157,6 +4157,7 @@ MonoBehaviour:
   m_skillFPrefab: {fileID: 8644711318456673158, guid: 67badf4862f12394abc8b617108508ba, type: 3}
   m_skillFParent: {fileID: 241197687}
   m_skillFSprite: {fileID: 21300000, guid: eaadacd963aa949429fc2f08d52db73a, type: 3}
+  m_nestParent: {fileID: 279074002}
 --- !u!114 &1272395854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5099,7 +5100,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: F
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1665146333
@@ -5864,7 +5865,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uAD6C\uB9E4\uD558\uAE30"
+  m_Text: "\uD68D\uB4DD \uD558\uAE30"
 --- !u!222 &1944433702
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5890,7 +5891,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1950980360
 RectTransform:
   m_ObjectHideFlags: 0

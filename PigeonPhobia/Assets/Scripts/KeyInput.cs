@@ -53,8 +53,10 @@ public class KeyInput : MonoBehaviour
                 return;
 
             DestoryItem();
-            m_skills[3].Select();
-            m_skills[3].Create();
+            FindObjectOfType<SkillF>().Useable = false;
+            ((SkillF)m_skills[3]).UseSkill();
+            //m_skills[3].Select();
+            //m_skills[3].Create();
             m_item = m_skills[3].GetItem();
             Clear(3);
         }

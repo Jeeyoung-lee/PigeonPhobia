@@ -44,12 +44,12 @@ public class Shop : MonoBehaviour
 
                 if(FindObjectOfType<SkillA>().Possession)
                 {
-                    m_buyBtn.GetComponentInChildren<Text>().text = "±¸¸Å ¿Ï·á";
+                    m_buyBtn.GetComponentInChildren<Text>().text = "È¹µæ ¿Ï·á";
                     m_buyBtn.interactable = false;
                 }
                 else
                 {
-                    m_buyBtn.GetComponentInChildren<Text>().text = "±¸¸Å ÇÏ±â";
+                    m_buyBtn.GetComponentInChildren<Text>().text = "È¹µæ ÇÏ±â";
                     m_buyBtn.interactable = true;
                 }
 
@@ -62,12 +62,12 @@ public class Shop : MonoBehaviour
 
                 if (FindObjectOfType<SkillS>().Possession)
                 {
-                    m_buyBtn.GetComponentInChildren<Text>().text = "±¸¸Å ¿Ï·á";
+                    m_buyBtn.GetComponentInChildren<Text>().text = "È¹µæ ¿Ï·á";
                     m_buyBtn.interactable = false;
                 }
                 else
                 {
-                    m_buyBtn.GetComponentInChildren<Text>().text = "±¸¸Å ÇÏ±â";
+                    m_buyBtn.GetComponentInChildren<Text>().text = "È¹µæ ÇÏ±â";
                     m_buyBtn.interactable = true;
                 }
 
@@ -76,11 +76,41 @@ public class Shop : MonoBehaviour
                 m_skillDescription.text = "±×¹°¿¡ Æ÷È¹µÈ ºñµÑ±â´Â Áï½Ã »ç¶óÁý´Ï´Ù";
                 m_selectSkill = EventSystem.current.currentSelectedGameObject;
                 break;
-            case "":
-                m_selectSkillName = string.Empty;
-                m_skillName.text = "ÁØºñÁß";
-                m_skillDescription.text = "ÁØºñÁß";
-                m_selectSkill = null;
+            case "D":
+
+                if (FindObjectOfType<SkillD>().Possession)
+                {
+                    m_buyBtn.GetComponentInChildren<Text>().text = "È¹µæ ¿Ï·á";
+                    m_buyBtn.interactable = false;
+                }
+                else
+                {
+                    m_buyBtn.GetComponentInChildren<Text>().text = "È¹µæ ÇÏ±â";
+                    m_buyBtn.interactable = true;
+                }
+
+                m_selectSkillName = _skillName;
+                m_skillName.text = "ºñµÑ±â µ£";
+                m_skillDescription.text = "ºñµÑ±â¿¡°Ô ÇÇÇØ¸¦ ÁÖ´Â µ£À» »ý¼ºÇÕ´Ï´Ù";
+                m_selectSkill = EventSystem.current.currentSelectedGameObject;
+                break;
+            case "F":
+
+                if (FindObjectOfType<SkillF>().Possession)
+                {
+                    m_buyBtn.GetComponentInChildren<Text>().text = "È¹µæ ¿Ï·á";
+                    m_buyBtn.interactable = false;
+                }
+                else
+                {
+                    m_buyBtn.GetComponentInChildren<Text>().text = "È¹µæ ÇÏ±â";
+                    m_buyBtn.interactable = true;
+                }
+
+                m_selectSkillName = _skillName;
+                m_skillName.text = "Å©·¹ÀÎ ºÎ¸£±â";
+                m_skillDescription.text = "µÕÁö ÇÏ³ª¸¦ Áï½Ã Ã¶°ÅÇÕ´Ï´Ù";
+                m_selectSkill = EventSystem.current.currentSelectedGameObject;
                 break;
         }
     }
@@ -94,14 +124,25 @@ public class Shop : MonoBehaviour
         {
             case "A":
                 FindObjectOfType<SkillA>().Possession = true;
-                m_buyBtn.GetComponentInChildren<Text>().text = "±¸¸Å ¿Ï·á";
+                m_buyBtn.GetComponentInChildren<Text>().text = "È¹µæ ¿Ï·á";
                 m_buyBtn.interactable = false;
                 break;
             case "S":
                 FindObjectOfType<SkillS>().Possession = true;
-                m_buyBtn.GetComponentInChildren<Text>().text = "±¸¸Å ¿Ï·á";
+                m_buyBtn.GetComponentInChildren<Text>().text = "È¹µæ ¿Ï·á";
                 m_buyBtn.interactable = false;
                 break;
+            case "D":
+                FindObjectOfType<SkillD>().Possession = true;
+                m_buyBtn.GetComponentInChildren<Text>().text = "È¹µæ ¿Ï·á";
+                m_buyBtn.interactable = false;
+                break;
+            case "F":
+                FindObjectOfType<SkillF>().Possession = true;
+                m_buyBtn.GetComponentInChildren<Text>().text = "È¹µæ ¿Ï·á";
+                m_buyBtn.interactable = false;
+                break;
+
 
         }
     }

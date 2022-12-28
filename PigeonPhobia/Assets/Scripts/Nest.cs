@@ -15,11 +15,18 @@ public class Nest : MonoBehaviour
     bool m_isAttackable = true;
 
     GameManager m_gameManager;
+    bool m_isCreationable = true; // 생성 가능한 상태인가?
+
+    public bool Creationable
+    {
+        get { return m_isCreationable; }
+        set { m_isCreationable = value; }
+    }
 
     private void Update()
     {
         m_time += Time.deltaTime;
-        if(m_time >= m_creationTime)
+        if(m_time >= m_creationTime && m_isCreationable)
         {
             var prefabManager = PrefabManager.instance;
             var pigeon = prefabManager.CreatePigeonInNest();
